@@ -27,7 +27,7 @@ def create_transit_router(
         client_token: Optional[str] = None
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouter接口，创建一个中转路由器实例。
+    调用 CreateTransitRouter 接口，创建一个中转路由器实例。
     Args:
         transit_router_name (str, optional): 中转路由器实例的名称。
         description (str, optional): 中转路由器实例的描述。
@@ -82,7 +82,7 @@ def describe_transit_routers(
 
 @mcp.tool(
     name="describe_transit_router_attachments",
-    description="查询满足指定条件的中转路由器实例"
+    description="查询满足指定条件的网络实例连接"
 )
 def describe_transit_router_attachments(
         transit_router_id: Optional[str] = None,
@@ -94,7 +94,7 @@ def describe_transit_router_attachments(
         transit_router_attachment_ids: Optional[List[str]] = None,
 ) -> dict[str, Any]:
     """
-    调用 DescribeTransitRouterAttachments 接口，查询实例共享列表。
+    调用 DescribeTransitRouterAttachments 接口，查询满足指定条件的网络实例连接。
     Args:
         transit_router_id (str, optional): 中转路由器实例的ID。
         resource_type (str, optional): 资源类型。
@@ -102,7 +102,7 @@ def describe_transit_router_attachments(
         transit_router_forward_policy_table_id (str, optional): 路由策略表ID。
         transit_router_traffic_qos_marking_policy_id (str, optional): 流量QoS标记策略ID。
         transit_router_traffic_qos_queue_policy_id (str, optional): 流量QoS队列策略ID。
-        transit_router_attachment_ids (List[str], optional): 网络实例连接的IDID列表。
+        transit_router_attachment_ids (List[str], optional): 网络实例连接的ID列表。
     Returns:
         dict[str, Any]: 网络实例连接的详细信息。
     """
@@ -136,7 +136,7 @@ def create_transit_router_vpc_attachment(
         client_token: Optional[str] = None
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouterVpcAttachment接口，创建一个VPC类型的网络实例连接。
+    调用 CreateTransitRouterVpcAttachment 接口，创建一个VPC类型的网络实例连接。
     Args:
         transit_router_id (str): 中转路由器实例ID。
         vpc_id (str): VPC实例ID。
@@ -186,7 +186,7 @@ def describe_transit_router_vpc_attachments(
         vpc_id (str, optional): VPC实例的ID。
         transit_router_attachment_ids (list[str], optional): 实例连接的ID列表。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: VPC类型网络实例连接的详细信息。
     """
     req = {
         "transit_router_id": transit_router_id,
@@ -210,7 +210,7 @@ def create_transit_router_vpn_attachment(
         client_token: Optional[str] = None
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouterVpnAttachment接口，创建一个VPN类型的网络实例连接。
+    调用 CreateTransitRouterVpnAttachment 接口，创建一个VPN类型的网络实例连接。
     Args:
         transit_router_id (str): 中转路由器实例ID。
         vpn_connection_id (str): VPN连接ID。
@@ -273,7 +273,7 @@ def create_transit_router_direct_connect_gateway_attachment(
         client_token: Optional[str] = None
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouterDirectConnectGatewayAttachment接口，创建一个专线网关类型的网络实例连接。
+    调用 CreateTransitRouterDirectConnectGatewayAttachment 接口，创建一个专线网关类型的网络实例连接。
     Args:
         transit_router_id (str): 中转路由器实例ID。
         direct_connect_gateway_id (str): 专线网关ID。
@@ -312,7 +312,7 @@ def describe_transit_router_direct_connect_gateway_attachments(
         direct_connect_gateway_id (str, optional): 专线网关实例的ID。
         transit_router_attachment_ids (list[str], optional): 实例连接的ID列表。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 专线网关类型网络实例连接的详细信息。
     """
     req = {
         "transit_router_id": transit_router_id,
@@ -339,7 +339,7 @@ def create_transit_router_peer_attachment(
         client_token: Optional[str] = None
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouterPeerAttachment接口，创建一个跨地域连接。
+    调用 CreateTransitRouterPeerAttachment 接口，创建一个跨地域连接。
     Args:
         transit_router_id (str): 中转路由器实例ID。
         peer_transit_router_id (str): 对端中转路由器实例ID。
@@ -408,7 +408,7 @@ def create_transit_router_route_table(
         tags: Optional[List[Dict[str, str]]] = None,
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouterRouteTable接口，创建一个路由表。
+    调用 CreateTransitRouterRouteTable 接口，创建一个路由表。
     Args:
         transit_router_id (str): 中转路由器实例ID。
         transit_router_route_table_name (str, optional): 路由表的名称。
@@ -466,7 +466,7 @@ def create_transit_router_route_entry(
         description: Optional[str] = None,
 ) -> dict[str, Any]:
     """
-    调用CreateTransitRouterRouteEntry接口，创建一条静态路由条目。
+    调用 CreateTransitRouterRouteEntry 接口，创建一条静态路由条目。
     Args:
         transit_router_route_table_id (str): 路由表的ID。
         destination_cidr_block (str): 路由条目的目标网段。
@@ -539,7 +539,7 @@ def associate_transit_router_attachment_to_route_table(
         transit_router_route_table_id: str = None,
 ) -> dict[str, Any]:
     """
-    调用AssociateTransitRouterAttachmentToRouteTable接口，为指定的网络实例连接关联路由表。
+    调用 AssociateTransitRouterAttachmentToRouteTable 接口，为指定的网络实例连接关联路由表。
     Args:
         transit_router_attachment_id (str): 网络实例连接的ID。
         transit_router_route_table_id (str): 路由表的ID。
@@ -586,7 +586,7 @@ def enable_transit_router_route_table_propagation(
         transit_router_route_table_id: str = None,
 ) -> dict[str, Any]:
     """
-    调用EnableTransitRouterRouteTablePropagation接口，为指定的网络实例连接启用路由传播。
+    调用 EnableTransitRouterRouteTablePropagation 接口，为指定的网络实例连接启用路由传播。
     Args:
         transit_router_attachment_id (str): 网络实例连接的ID。
         transit_router_route_table_id (str): 路由表的ID。
@@ -615,7 +615,7 @@ def describe_transit_router_route_table_propagations(
         transit_router_route_table_id (str, optional): 路由表传播关联的路由表实例的ID。
         transit_router_attachment_id (str, optional): 路由表传播关联的本端关联实例的ID。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 路由表传播的详细信息。
     """
     req = {
         "transit_router_route_table_id": transit_router_route_table_id,
@@ -814,86 +814,101 @@ def create_transit_router_forward_policy_table(
     return resp.to_dict()
 
 @mcp.tool(
-    name="associate_transit_router_forward_policy_table_to_attachment",
-    description="将指定的转发策略绑定至网络实例连接或跨地域连接"
-)
-def associate_transit_router_forward_policy_table_to_attachment(
-    transit_router_attachment_id: str,
-    transit_router_forward_policy_table_id: str,
-) -> dict[str, Any]:
-    """
-    调用 associate_transit_router_forward_policy_table_to_attachment 将指定的转发策略绑定至网络实例连接或跨地域连接
-    Args:
-        transit_router_attachment_id (str): 中转路由器连接ID
-        transit_router_forward_policy_table_id (str): 转发策略ID
-    Returns:
-        dict[str, Any]: 绑定结果
-    """
-    req = {
-        "transit_router_attachment_id": transit_router_attachment_id,
-        "transit_router_forward_policy_table_id": transit_router_forward_policy_table_id,
-    }
-    resp = tr_resource.associate_transit_router_forward_policy_table_to_attachment(req)
-    return resp.to_dict()
-
-@mcp.tool(
     name="describe_transit_router_forward_policy_tables",
-    description="查询满足指定条件的转发策略"
+    description="查询满足指定条件的转发策略表"
 )
 def describe_transit_router_forward_policy_tables(
+    transit_router_id: str,
     transit_router_forward_policy_table_ids: Optional[List[str]] = None,
     transit_router_forward_policy_table_name: Optional[str] = None,
-    transit_router_id: str = None,
 ) -> dict[str, Any]:
     """
-    调用 describe_transit_router_forward_policy_tables 查询满足指定条件的转发策略
+    调用 describe_transit_router_forward_policy_tables 查询满足指定条件的转发策略表。
     Args:
-        transit_router_forward_policy_table_ids (list[str], optional): 路由策略实例的ID列表。
-        transit_router_forward_policy_table_name (str, optional): 路由策略实例的名称。
-        transit_router_id (str, optional): 路由策略实例的ID列表。
+        transit_router_id (str): 中转路由器实例的ID。
+        transit_router_forward_policy_table_ids (list[str], optional): 转发策略表的ID列表。
+        transit_router_forward_policy_table_name (str, optional): 转发策略表的名称。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 转发策略表的详细信息。
     """
     req = {
+        "transit_router_id": transit_router_id,
         "transit_router_forward_policy_table_ids": transit_router_forward_policy_table_ids,
         "transit_router_forward_policy_table_name": transit_router_forward_policy_table_name,
-        "transit_router_id": transit_router_id,
     }
     resp = tr_resource.describe_transit_router_forward_policy_tables(req)
     return resp.to_dict()
 
 @mcp.tool(
-    name="create_transit_router_forward_policy_entry",
-    description="为指定的转发策略添加策略条目"
+    name="associate_transit_router_forward_policy_table_to_attachment",
+    description="转发策略表关联网络实例连接"
 )
-def create_transit_router_forward_policy_entry(
+def associate_transit_router_forward_policy_table_to_attachment(
     transit_router_forward_policy_table_id: str,
-    transit_router_route_table_id: str,
-    source_cidr_block: str,
-    priority: int,
-    destination_cidr_block: Optional[str] = None,
-    description: Optional[str] = None,
-    client_token: Optional[str] = None,
+    transit_router_attachment_id: str
 ) -> dict[str, Any]:
     """
-    调用 create_transit_router_forward_policy_entry 为指定的转发策略添加策略条目
+    调用 AssociateTransitRouterForwardPolicyTableToAttachment 接口，将转发策略表关联至网络实例连接。
     Args:
-        transit_router_forward_policy_table_id (str): 转发策略ID
-        transit_router_route_table_id (str): 路由表ID
-        source_cidr_block (str): 转发策略条目的源地址段，支持IPv4和IPv6网段
-        priority (int): 转发策略条目的优先级，取值范围为1～10000
-        destination_cidr_block (str, optional): 转发策略条目的目的地址段，支持IPv4和IPv6网段
-        description (str, optional): 转发策略条目的描述信息
-        client_token (str, optional): 客户端token，用于保证请求的幂等性
+        transit_router_forward_policy_table_id (str): 转发策略表的ID。
+        transit_router_attachment_id (str): 网络实例连接的ID。
     Returns:
-        dict[str, Any]: 创建的转发策略条目信息
+        dict[str, Any]: 关联结果。
     """
     req = {
         "transit_router_forward_policy_table_id": transit_router_forward_policy_table_id,
-        "transit_router_route_table_id": transit_router_route_table_id,
-        "source_cidr_block": source_cidr_block,
+        "transit_router_attachment_id": transit_router_attachment_id,
+    }
+    resp = tr_resource.associate_transit_router_forward_policy_table_to_attachment(req)
+    return resp.to_dict()
+
+@mcp.tool(
+    name="create_transit_router_forward_policy_entry",
+    description="创建转发策略规则"
+)
+def create_transit_router_forward_policy_entry(
+    transit_router_forward_policy_table_id: str,
+    priority: int,
+    source_cidr_block: str,
+    destination_cidr_block: str,
+    source_port_start: int,
+    source_port_end: int,
+    destination_port_start: int,
+    destination_port_end: int,
+    transit_router_attachment_id: str,
+    protocol: Optional[str] = None,
+    description: Optional[str] = None,
+    client_token: Optional[str] = None
+) -> dict[str, Any]:
+    """
+    调用 CreateTransitRouterForwardPolicyEntry 接口，为转发策略表添加一条转发策略规则。
+    Args:
+        transit_router_forward_policy_table_id (str): 转发策略表的ID。
+        priority (int): 转发策略规则的优先级，取值范围为1～10000。
+        source_cidr_block (str): 源地址的IP网段。
+        destination_cidr_block (str): 目的地址的IP网段。
+        source_port_start (int): 源端口范围的起始值。
+        source_port_end (int): 源端口范围的结束值。
+        destination_port_start (int): 目的端口范围的起始值。
+        destination_port_end (int): 目的端口范围的结束值。
+        transit_router_attachment_id (str): 网络实例连接的ID。
+        protocol (str, optional): 协议类型。
+        description (str, optional): 转发策略规则的描述信息。
+        client_token (str, optional): 客户端Token，用于保证请求的幂等性。
+    Returns:
+        dict[str, Any]: 创建的转发策略规则信息。
+    """
+    req = {
+        "transit_router_forward_policy_table_id": transit_router_forward_policy_table_id,
         "priority": priority,
+        "source_cidr_block": source_cidr_block,
         "destination_cidr_block": destination_cidr_block,
+        "source_port_start": source_port_start,
+        "source_port_end": source_port_end,
+        "destination_port_start": destination_port_start,
+        "destination_port_end": destination_port_end,
+        "transit_router_attachment_id": transit_router_attachment_id,
+        "protocol": protocol,
         "description": description,
         "client_token": client_token,
     }
@@ -902,101 +917,172 @@ def create_transit_router_forward_policy_entry(
 
 @mcp.tool(
     name="describe_transit_router_forward_policy_entries",
-    description="查询满足指定条件的转发策略条目"
+    description="查询满足指定条件的转发策略规则"
 )
 def describe_transit_router_forward_policy_entries(
-    source_cidr_block: Optional[str] = None,
-    destination_cidr_block: Optional[str] = None,
+    transit_router_forward_policy_table_id: str,
     transit_router_forward_policy_entry_ids: Optional[List[str]] = None,
-    transit_router_forward_policy_table_id: str = None,
-    transit_router_route_table_id: Optional[str] = None,
+    destination_cidr_block: Optional[str] = None,
+    transit_router_attachment_id: Optional[str] = None,
 ) -> dict[str, Any]:
     """
-    调用 describe_transit_router_forward_policy_entries 查询满足指定条件的转发策略条目
+    调用 describe_transit_router_forward_policy_entries 查询满足指定条件的转发策略规则。
     Args:
-        source_cidr_block (str, optional): 路由策略实例的ID列表。
-        destination_cidr_block (list[str], optional): 路由策略实例的ID列表。
-        transit_router_forward_policy_entry_ids (str, optional): 路由策略的作用方向。
-        transit_router_forward_policy_table_id (str, optional): 路由策略实例的ID列表。
-        transit_router_route_table_id (str, optional): 路由策略实例的ID列表。
+        transit_router_forward_policy_table_id (str): 转发策略表的ID。
+        transit_router_forward_policy_entry_ids (list[str], optional): 转发策略规则的ID列表。
+        destination_cidr_block (str, optional): 目的地址的IP网段。
+        transit_router_attachment_id (str, optional): 网络实例连接的ID。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 转发策略规则的详细信息。
     """
     req = {
-        "source_cidr_block": source_cidr_block,
-        "destination_cidr_block": destination_cidr_block,
-        "transit_router_forward_policy_entry_ids": transit_router_forward_policy_entry_ids,
         "transit_router_forward_policy_table_id": transit_router_forward_policy_table_id,
-        "transit_router_route_table_id": transit_router_route_table_id,
+        "transit_router_forward_policy_entry_ids": transit_router_forward_policy_entry_ids,
+        "destination_cidr_block": destination_cidr_block,
+        "transit_router_attachment_id": transit_router_attachment_id,
     }
     resp = tr_resource.describe_transit_router_forward_policy_entries(req)
     return resp.to_dict()
 
 @mcp.tool(
-    name="describe_transit_router_traffic_qos_marking_policies",
-    description="查询满足指定条件的流标记策略"
+    name="create_transit_router_flow_log",
+    description="创建流日志"
 )
-def describe_transit_router_traffic_qos_marking_policies(
-    transit_router_traffic_qos_marking_policy_ids: Optional[List[str]] = None,
-    transit_router_traffic_qos_marking_policy_name: Optional[List[str]] = None,
-    transit_router_id: str = None,
+def create_transit_router_flow_log(
+    transit_router_id: str,
+    resource_type: str,
+    resource_id: str,
+    tls_project_name: str,
+    tls_topic_name: str,
+    transit_router_flow_log_name: Optional[str] = None,
+    description: Optional[str] = None,
+    log_format_string: Optional[str] = None,
+    aggregation_interval: int = 1,
+    client_token: Optional[str] = None,
+    tags: Optional[List[Dict[str, str]]] = None
 ) -> dict[str, Any]:
     """
-    调用 describe_transit_router_traffic_qos_marking_policies 查询满足指定条件的流标记策略
+    调用 CreateTransitRouterFlowLog 接口，创建流日志。
     Args:
-        transit_router_traffic_qos_marking_policy_ids (list[str], optional): 流标记策略的ID。
-        transit_router_traffic_qos_marking_policy_name (str, optional): 路由策略实例的名称。
-        transit_router_id (str, optional): 路由策略实例的ID列表。
+        transit_router_id (str): 中转路由器实例的ID。
+        resource_type (str): 流日志采集的资源类型，取值为PeerAttachment。
+        resource_id (str): 资源的ID。
+        tls_project_name (str): 日志服务的Project名称。
+        tls_topic_name (str): 日志服务的Topic名称。
+        transit_router_flow_log_name (str, optional): 流日志的名称。
+        description (str, optional): 流日志的描述信息。
+        log_format_string (str, optional): 日志格式字符串。
+        aggregation_interval (int): 流日志的聚合时间间隔，单位为分钟。取值如下：1：1分钟。10：10分钟。默认值为1。
+        client_token (str, optional): 客户端Token，用于保证请求幂等性。
+        tags (List[Dict[str, str]], optional): 标签列表，每个标签包含Key和Value。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 创建的流日志信息。
     """
     req = {
-        "transit_router_traffic_qos_marking_policy_ids": transit_router_traffic_qos_marking_policy_ids,
-        "transit_router_traffic_qos_marking_policy_name": transit_router_traffic_qos_marking_policy_name,
         "transit_router_id": transit_router_id,
+        "resource_type": resource_type,
+        "resource_id": resource_id,
+        "tls_project_name": tls_project_name,
+        "tls_topic_name": tls_topic_name,
+        "transit_router_flow_log_name": transit_router_flow_log_name,
+        "description": description,
+        "log_format_string": log_format_string,
+        "aggregation_interval": aggregation_interval,
+        "client_token": client_token,
+        "tags": tags
     }
-    resp = tr_resource.describe_transit_router_traffic_qos_marking_policies(req)
+    resp = tr_resource.create_transit_router_flow_log(req)
     return resp.to_dict()
 
 @mcp.tool(
-    name="describe_transit_router_traffic_qos_marking_entries",
-    description="查询流标记策略中满足指定条件的标记规则。"
+    name="start_transit_router_flow_log",
+    description="启动流日志"
 )
-def describe_transit_router_traffic_qos_marking_entries(
-    transit_router_traffic_qos_marking_policy_id: str = None,
-    transit_router_traffic_qos_marking_entry_ids: Optional[List[str]] = None,
-    transit_router_traffic_qos_marking_entry_name: Optional[str] = None,
-    protocol: Optional[str] = None,
-    source_cidr_block: Optional[str] = None,
-    destination_cidr_block: Optional[str] = None,
-    match_dscp: Optional[str] = None,
-    remarking_dscp: Optional[str] = None,
+def start_transit_router_flow_log(
+    transit_router_flow_log_id: str,
 ) -> dict[str, Any]:
     """
-    调用 describe_transit_router_traffic_qos_marking_entries 查询流标记策略中满足指定条件的标记规则。
+    调用 StartTransitRouterFlowLog 接口，开启流日志采集。
     Args:
-        transit_router_traffic_qos_marking_policy_id (str, optional): 流量标记策略实例的ID。
-        transit_router_traffic_qos_marking_entry_ids (list[str], optional): 流量标记条目的ID列表。
-        transit_router_traffic_qos_marking_entry_name (str, optional): 流量标记条目的名称。
-        protocol (str, optional): 流量标记条目的协议。
-        source_cidr_block (str, optional): 流量标记条目的源IP地址范围。
-        destination_cidr_block (str, optional): 流量标记条目的目标IP地址范围。
-        match_dscp (str, optional): 流量标记条目的DSCP值。
-        remarking_dscp (str, optional): 流量标记条目的重写DSCP值。
+        transit_router_flow_log_id (str): 流日志的ID。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 启动结果。
     """
     req = {
-        "transit_router_traffic_qos_marking_policy_id": transit_router_traffic_qos_marking_policy_id,
-        "transit_router_traffic_qos_marking_entry_ids": transit_router_traffic_qos_marking_entry_ids,
-        "transit_router_traffic_qos_marking_entry_name": transit_router_traffic_qos_marking_entry_name,
-        "protocol": protocol,
-        "source_cidr_block": source_cidr_block,
-        "destination_cidr_block": destination_cidr_block,
-        "match_dscp": match_dscp,
-        "remarking_dscp": remarking_dscp,
+        "transit_router_flow_log_id": transit_router_flow_log_id,
     }
-    resp = tr_resource.describe_transit_router_traffic_qos_marking_entries(req)
+    resp = tr_resource.start_transit_router_flow_log(req)
+    return resp.to_dict()
+
+@mcp.tool(
+    name="stop_transit_router_flow_log",
+    description="停止流日志采集"
+)
+def stop_transit_router_flow_log(
+    transit_router_flow_log_id: str,
+    client_token: Optional[str] = None
+) -> dict[str, Any]:
+    """
+    调用 StopTransitRouterFlowLog 接口，停止流日志采集。
+    Args:
+        transit_router_flow_log_id (str): 流日志的ID。
+    Returns:
+        dict[str, Any]: 停止结果。
+    """
+    req = {
+        "transit_router_flow_log_id": transit_router_flow_log_id,
+    }
+    resp = tr_resource.stop_transit_router_flow_log(req)
+    return resp.to_dict()
+
+@mcp.tool(
+    name="describe_transit_router_flow_logs",
+    description="查询流日志"
+)
+def describe_transit_router_flow_logs(
+    transit_router_id: Optional[str] = None,
+    transit_router_flow_log_ids: Optional[List[str]] = None,
+    transit_router_flow_log_name: Optional[str] = None,
+    resource_type: Optional[str] = None,
+    resource_id: Optional[str] = None,
+    tls_project_id: Optional[str] = None,
+    tls_topic_id: Optional[str] = None,
+    status: Optional[str] = None,
+    tag_filters: Optional[List[Dict[str, List[str]]]] = None,
+    page_number: Optional[int] = None,
+    page_size: Optional[int] = None,
+) -> dict[str, Any]:
+    """
+    调用 DescribeTransitRouterFlowLogs 接口，查询流日志。
+    Args:
+        transit_router_id (str, optional): 中转路由器实例的ID。
+        transit_router_flow_log_ids (List[str], optional): 流日志的ID列表。
+        transit_router_flow_log_name (str, optional): 流日志的名称。
+        resource_type (str, optional): 资源类型。
+        resource_id (str, optional): 资源的ID。
+        tls_project_id (str, optional): 日志服务的Project ID。
+        tls_topic_id (str, optional): 日志服务的Topic ID。
+        status (str, optional): 流日志的状态。
+        tag_filters (List[Dict[str, List[str]]], optional): 标签过滤条件，每个标签包含Key和Values。
+        page_number (int, optional): 分页查询的页码。默认值为1。
+        page_size (int, optional): 分页查询的每页数量。默认值为10。
+    Returns:
+        dict[str, Any]: 流日志的详细信息。
+    """
+    req = {
+        "transit_router_id": transit_router_id,
+        "transit_router_flow_log_ids": transit_router_flow_log_ids,
+        "transit_router_flow_log_name": transit_router_flow_log_name,
+        "resource_type": resource_type,
+        "resource_id": resource_id,
+        "tls_project_id": tls_project_id,
+        "tls_topic_id": tls_topic_id,
+        "status": status,
+        "tag_filters": tag_filters,
+        "page_number": page_number,
+        "page_size": page_size,
+    }
+    resp = tr_resource.describe_transit_router_flow_logs(req)
     return resp.to_dict()
 
 @mcp.tool(
@@ -1010,7 +1096,7 @@ def create_transit_router_traffic_qos_marking_policy(
     client_token: Optional[str] = None
 ) -> dict[str, Any]:
     """
-    调用 CreateTransitRouterTrafficQosMarkingPolicy 接口，创建流标记策略。
+    调用 CreateTransitRouterTrafficQosMarkingPolicy 接口，创建一个流标记策略。
     Args:
         transit_router_id (str): 中转路由器实例的ID。
         transit_router_traffic_qos_marking_policy_name (str, optional): 流标记策略的名称。
@@ -1049,6 +1135,32 @@ def associate_transit_router_traffic_qos_marking_policy_to_attachment(
         "transit_router_traffic_qos_marking_policy_id": transit_router_traffic_qos_marking_policy_id,
     }
     resp = tr_resource.associate_transit_router_traffic_qos_marking_policy_to_attachment(req)
+    return resp.to_dict()
+
+@mcp.tool(
+    name="describe_transit_router_traffic_qos_marking_policies",
+    description="查询满足指定条件的流量调度策略。"
+)
+def describe_transit_router_traffic_qos_marking_policies(
+    transit_router_id: Optional[str] = None,
+    transit_router_traffic_qos_marking_policy_ids: Optional[List[str]] = None,
+    transit_router_traffic_qos_marking_policy_name: Optional[str] = None,
+) -> dict[str, Any]:
+    """
+    调用 describe_transit_router_traffic_qos_marking_policies 查询满足指定条件的流量调度策略。
+    Args:
+        transit_router_id (str, optional): 流量调度策略实例的ID。
+        transit_router_traffic_qos_marking_policy_ids (list[str], optional): 流量调度策略实例的ID列表。
+        transit_router_traffic_qos_marking_policy_name (str, optional): 流量调度策略实例的名称。
+    Returns:
+        dict[str, Any]: 流标记策略的详细信息。
+    """
+    req = {
+        "transit_router_id": transit_router_id,
+        "transit_router_traffic_qos_marking_policy_ids": transit_router_traffic_qos_marking_policy_ids,
+        "transit_router_traffic_qos_marking_policy_name": transit_router_traffic_qos_marking_policy_name,
+    }
+    resp = tr_resource.describe_transit_router_traffic_qos_marking_policies(req)
     return resp.to_dict()
 
 @mcp.tool(
@@ -1111,6 +1223,32 @@ def create_transit_router_traffic_qos_marking_entry(
     return resp.to_dict()
 
 @mcp.tool(
+    name="describe_transit_router_traffic_qos_marking_entries",
+    description="查询满足指定条件的流标记规则。"
+)
+def describe_transit_router_traffic_qos_marking_entries(
+    transit_router_traffic_qos_marking_policy_id: Optional[str] = None,
+    transit_router_traffic_qos_marking_entry_ids: Optional[List[str]] = None,
+    transit_router_traffic_qos_marking_entry_name: Optional[str] = None,
+) -> dict[str, Any]:
+    """
+    调用 describe_transit_router_traffic_qos_marking_entries 查询满足指定条件的流标记规则。
+    Args:
+        transit_router_traffic_qos_marking_policy_id (str, optional): 流量调度策略实例的ID。
+        transit_router_traffic_qos_marking_entry_ids (list[str], optional): 流标记规则的ID列表。
+        transit_router_traffic_qos_marking_entry_name (str, optional): 流标记规则的名称。
+    Returns:
+        dict[str, Any]: 流标记规则的详细信息。
+    """
+    req = {
+        "transit_router_traffic_qos_marking_policy_id": transit_router_traffic_qos_marking_policy_id,
+        "transit_router_traffic_qos_marking_entry_ids": transit_router_traffic_qos_marking_entry_ids,
+        "transit_router_traffic_qos_marking_entry_name": transit_router_traffic_qos_marking_entry_name,
+    }
+    resp = tr_resource.describe_transit_router_traffic_qos_marking_entries(req)
+    return resp.to_dict()
+
+@mcp.tool(
     name="create_transit_router_traffic_qos_queue_policy",
     description="创建流队列策略"
 )
@@ -1163,6 +1301,32 @@ def associate_transit_router_traffic_qos_queue_policy_to_attachment(
     return resp.to_dict()
 
 @mcp.tool(
+    name="describe_transit_router_traffic_qos_queue_policies",
+    description="查询满足指定条件的流量调度策略。"
+)
+def describe_transit_router_traffic_qos_queue_policies(
+    transit_router_id: str = None,
+    transit_router_traffic_qos_queue_policy_ids: Optional[List[str]] = None,
+    transit_router_traffic_qos_queue_policy_name: Optional[str] = None,
+) -> dict[str, Any]:
+    """
+    调用 describe_transit_router_traffic_qos_queue_policies 查询满足指定条件的流量调度策略。
+    Args:
+        transit_router_id (str, optional): 流量调度策略实例的ID。
+        transit_router_traffic_qos_queue_policy_ids (list[str], optional): 流量调度策略实例的ID列表。
+        transit_router_traffic_qos_queue_policy_name (str, optional): 流量调度策略实例的名称。
+    Returns:
+        dict[str, Any]: 流队列策略的详细信息。
+    """
+    req = {
+        "transit_router_id": transit_router_id,
+        "transit_router_traffic_qos_queue_policy_ids": transit_router_traffic_qos_queue_policy_ids,
+        "transit_router_traffic_qos_queue_policy_name": transit_router_traffic_qos_queue_policy_name,
+    }
+    resp = tr_resource.describe_transit_router_traffic_qos_queue_policies(req)
+    return resp.to_dict()
+
+@mcp.tool(
     name="create_transit_router_traffic_qos_queue_entry",
     description="添加流队列"
 )
@@ -1198,32 +1362,6 @@ def create_transit_router_traffic_qos_queue_entry(
     return resp.to_dict()
 
 @mcp.tool(
-    name="describe_transit_router_traffic_qos_queue_policies",
-    description="查询满足指定条件的流量调度策略。"
-)
-def describe_transit_router_traffic_qos_queue_policies(
-    transit_router_id: str = None,
-    transit_router_traffic_qos_queue_policy_ids: Optional[List[str]] = None,
-    transit_router_traffic_qos_queue_policy_name: Optional[str] = None,
-) -> dict[str, Any]:
-    """
-    调用 describe_transit_router_traffic_qos_queue_policies 查询满足指定条件的流量调度策略。
-    Args:
-        transit_router_id (str, optional): 流量调度策略实例的ID。
-        transit_router_traffic_qos_queue_policy_ids (list[str], optional): 流量调度策略实例的ID列表。
-        transit_router_traffic_qos_queue_policy_name (str, optional): 流量调度策略实例的名称。
-    Returns:
-        dict[str, Any]: 实例共享的详细信息。
-    """
-    req = {
-        "transit_router_id": transit_router_id,
-        "transit_router_traffic_qos_queue_policy_ids": transit_router_traffic_qos_queue_policy_ids,
-        "transit_router_traffic_qos_queue_policy_name": transit_router_traffic_qos_queue_policy_name,
-    }
-    resp = tr_resource.describe_transit_router_traffic_qos_queue_policies(req)
-    return resp.to_dict()
-
-@mcp.tool(
     name="describe_transit_router_traffic_qos_queue_entries",
     description="查询满足指定条件的流队列。"
 )
@@ -1239,7 +1377,7 @@ def describe_transit_router_traffic_qos_queue_entries(
         transit_router_traffic_qos_queue_entry_ids (list[str], optional): 流量调度队列实例的ID列表。
         transit_router_traffic_qos_queue_entry_name (str, optional): 流量调度队列实例的名称。
     Returns:
-        dict[str, Any]: 实例共享的详细信息。
+        dict[str, Any]: 流队列的详细信息。
     """
     req = {
         "transit_router_traffic_qos_queue_policy_id": transit_router_traffic_qos_queue_policy_id,
@@ -1247,81 +1385,6 @@ def describe_transit_router_traffic_qos_queue_entries(
         "transit_router_traffic_qos_queue_entry_name": transit_router_traffic_qos_queue_entry_name,
     }
     resp = tr_resource.describe_transit_router_traffic_qos_queue_entries(req)
-    return resp.to_dict()
-
-@mcp.tool(
-    name="describe_transit_router_regions",
-    description="查询中转路由器地域信息"
-)
-def describe_transit_router_regions(
-        geographic_region_set_id: Optional[str] = None,
-        region_ids: Optional[List[str]] = None,
-) -> dict[str, Any]:
-    """
-    调用 describe_transit_router_regions 接口，查询中转路由器地域信息
-    Args:
-        geographic_region_set_id (str, optional): 地域集合的ID。
-        region_ids (list[str], optional): 地域实例的ID列表。
-    Returns:
-        dict[str, Any]: 实例共享的详细信息。
-    """
-    req = {
-        "geographic_region_set_id": geographic_region_set_id,
-        "region_ids": region_ids,
-    }
-    resp = tr_resource.describe_transit_router_regions(req)
-    return resp.to_dict()
-
-@mcp.tool(
-    name="describe_transit_router_bandwidth_packages",
-    description="查询满足指定条件的中转路由器带宽包。"
-)
-def describe_transit_router_bandwidth_packages(
-        transit_router_bandwidth_package_ids: Optional[List[str]] = None,
-        local_geographic_region_set_id: Optional[str] = None,
-        peer_geographic_region_set_id: Optional[str] = None,
-        transit_router_peer_attachment_id: Optional[str] = None,
-        transit_router_bandwidth_package_name: Optional[str] = None
-) -> dict[str, Any]:
-    """
-    调用 describe_transit_router_bandwidth_packages 接口，查询中转路由器带宽包列表
-    Args:
-        transit_router_bandwidth_package_ids (list[str], optional): 实例连接的ID列表。
-        local_geographic_region_set_id (str, optional): 本地地域集合的ID。
-        peer_geographic_region_set_id (str, optional): 对等地域集合的ID。
-        transit_router_peer_attachment_id (str, optional): 对等连接实例的ID。
-        transit_router_bandwidth_package_name (str, optional): 带宽包实例的名称。
-    Returns:
-        dict[str, Any]: 实例共享的详细信息。
-    """
-    req = {
-        "transit_router_bandwidth_package_ids": transit_router_bandwidth_package_ids,
-        "local_geographic_region_set_id": local_geographic_region_set_id,
-        "peer_geographic_region_set_id": peer_geographic_region_set_id,
-        "transit_router_peer_attachment_id": transit_router_peer_attachment_id,
-        "transit_router_bandwidth_package_name": transit_router_bandwidth_package_name,
-    }
-    resp = tr_resource.describe_transit_router_bandwidth_packages(req)
-    return resp.to_dict()
-
-@mcp.tool(
-    name="describe_transit_router_bandwidth_packages_billing",
-    description="查询中转路由器带宽包计费方式列表"
-)
-def describe_transit_router_bandwidth_packages_billing(
-        transit_router_bandwidth_package_ids: Optional[List[str]] = None,
-) -> dict[str, Any]:
-    """
-    调用 describe_transit_router_bandwidth_packages_billing 查询中转路由器带宽包计费方式列表
-    Args:
-        transit_router_bandwidth_package_ids (list[str], optional): 实例连接的ID列表。
-    Returns:
-        dict[str, Any]: 实例共享的详细信息。
-    """
-    req = {
-        "transit_router_bandwidth_package_ids": transit_router_bandwidth_package_ids,
-    }
-    resp = tr_resource.describe_transit_router_bandwidth_packages_billing(req)
     return resp.to_dict()
 
 @mcp.tool(
@@ -1570,6 +1633,29 @@ def describe_transit_router_multicast_groups(
     return resp.to_dict()
 
 @mcp.tool(
+    name="describe_transit_router_regions",
+    description="查询中转路由器地域信息"
+)
+def describe_transit_router_regions(
+        geographic_region_set_id: Optional[str] = None,
+        region_ids: Optional[List[str]] = None,
+) -> dict[str, Any]:
+    """
+    调用 describe_transit_router_regions 接口，查询中转路由器地域信息
+    Args:
+        geographic_region_set_id (str, optional): 地域集合的ID。
+        region_ids (list[str], optional): 地域实例的ID列表。
+    Returns:
+        dict[str, Any]: 实例共享的详细信息。
+    """
+    req = {
+        "geographic_region_set_id": geographic_region_set_id,
+        "region_ids": region_ids,
+    }
+    resp = tr_resource.describe_transit_router_regions(req)
+    return resp.to_dict()
+
+@mcp.tool(
     name="create_transit_router_bandwidth_package",
     description="创建中转路由器带宽包"
 )
@@ -1675,6 +1761,58 @@ def set_transit_router_bandwidth_package_renewal(
         "remain_renew_times": remain_renew_times,
     }
     resp = tr_resource.set_transit_router_bandwidth_package_renewal(req)
+    return resp.to_dict()
+
+@mcp.tool(
+    name="describe_transit_router_bandwidth_packages",
+    description="查询满足指定条件的中转路由器带宽包。"
+)
+def describe_transit_router_bandwidth_packages(
+        transit_router_bandwidth_package_ids: Optional[List[str]] = None,
+        local_geographic_region_set_id: Optional[str] = None,
+        peer_geographic_region_set_id: Optional[str] = None,
+        transit_router_peer_attachment_id: Optional[str] = None,
+        transit_router_bandwidth_package_name: Optional[str] = None
+) -> dict[str, Any]:
+    """
+    调用 describe_transit_router_bandwidth_packages 接口，查询中转路由器带宽包列表
+    Args:
+        transit_router_bandwidth_package_ids (list[str], optional): 实例连接的ID列表。
+        local_geographic_region_set_id (str, optional): 本地地域集合的ID。
+        peer_geographic_region_set_id (str, optional): 对等地域集合的ID。
+        transit_router_peer_attachment_id (str, optional): 对等连接实例的ID。
+        transit_router_bandwidth_package_name (str, optional): 带宽包实例的名称。
+    Returns:
+        dict[str, Any]: 中转路由器带宽包的详细信息。
+    """
+    req = {
+        "transit_router_bandwidth_package_ids": transit_router_bandwidth_package_ids,
+        "local_geographic_region_set_id": local_geographic_region_set_id,
+        "peer_geographic_region_set_id": peer_geographic_region_set_id,
+        "transit_router_peer_attachment_id": transit_router_peer_attachment_id,
+        "transit_router_bandwidth_package_name": transit_router_bandwidth_package_name,
+    }
+    resp = tr_resource.describe_transit_router_bandwidth_packages(req)
+    return resp.to_dict()
+
+@mcp.tool(
+    name="describe_transit_router_bandwidth_packages_billing",
+    description="查询中转路由器带宽包计费方式列表"
+)
+def describe_transit_router_bandwidth_packages_billing(
+        transit_router_bandwidth_package_ids: Optional[List[str]] = None,
+) -> dict[str, Any]:
+    """
+    调用 describe_transit_router_bandwidth_packages_billing 查询中转路由器带宽包计费方式列表
+    Args:
+        transit_router_bandwidth_package_ids (list[str], optional): 实例连接的ID列表。
+    Returns:
+        dict[str, Any]: 中转路由器带宽包计费方式的详细信息。
+    """
+    req = {
+        "transit_router_bandwidth_package_ids": transit_router_bandwidth_package_ids,
+    }
+    resp = tr_resource.describe_transit_router_bandwidth_packages_billing(req)
     return resp.to_dict()
 
 
